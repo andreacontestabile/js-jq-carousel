@@ -1,6 +1,32 @@
 $(document).ready(function() {
 
   $(".next").click(function() {
+    nextImage();
+  });
+
+  $(".prev").click(function() {
+    prevImage();
+  });
+
+  $(document).keydown(function(e) {
+
+    var tastoPremuto = e.which;
+    var frecciaDestra = 39;
+    var frecciaSinistra = 37;
+
+    switch(tastoPremuto) {
+
+      case frecciaDestra:
+        nextImage();
+        break;
+      case frecciaSinistra:
+        prevImage();
+        break;
+    }
+
+  });
+
+  function nextImage() {
 
     var activeImg = $("img.active");
     activeImg.removeClass("active");
@@ -13,10 +39,9 @@ $(document).ready(function() {
 
     nextImg.addClass("active");
 
-  });
+  }
 
-
-  $(".prev").click(function() {
+  function prevImage() {
 
     var activeImg = $("img.active");
     activeImg.removeClass("active");
@@ -29,6 +54,6 @@ $(document).ready(function() {
 
     prevImg.addClass("active");
 
-  });
+  }
 
 });
