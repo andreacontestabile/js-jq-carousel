@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   // Evento click TASTO NEXT
   $(".next").click(function() {
     nextImage();
@@ -9,6 +10,22 @@ $(document).ready(function() {
   $(".prev").click(function() {
     prevImage();
     prevCircle();
+  });
+
+  // Evento click pallini e cambio immagine
+  $(".nav i.fa-circle").click(function() {
+
+    var circleIndex = $(this).index();
+
+    $(".nav i.fa-circle.active").removeClass("active");
+    $("img.active").removeClass("active");
+
+    if (!$(this).hasClass("active")) {
+      $(this).addClass("active");
+    }
+
+    $("img").eq(circleIndex).addClass("active");
+
   });
 
   // Evento pressione TASTI FRECCIA DESTRA e SINISTRA
@@ -33,6 +50,7 @@ $(document).ready(function() {
   });
 
   //FUNZIONI
+
   // Funzione prossima immagine
   function nextImage() {
 
@@ -48,6 +66,7 @@ $(document).ready(function() {
     nextImg.addClass("active");
 
   }
+
   // Funzione selezione prossimo pallino
   function nextCircle() {
 
@@ -63,6 +82,7 @@ $(document).ready(function() {
     nextCircle.addClass("active");
 
   }
+
   // Funzione immagine precedente
   function prevImage() {
 
@@ -78,6 +98,7 @@ $(document).ready(function() {
     prevImg.addClass("active");
 
   }
+  
   // Funzione seleziona pallino precedente
   function prevCircle() {
 
